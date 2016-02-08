@@ -1,5 +1,9 @@
 # Nunjucks
 
+This is a patch version with this changes:
+ - Remove chokidar dependency
+ - Remove `browse` key in package.json
+
 [Nunjucks](http://mozilla.github.io/nunjucks/) is a full featured
 templating engine for javascript. It is heavily inspired by
 [jinja2](http://jinja.pocoo.org/). View the docs
