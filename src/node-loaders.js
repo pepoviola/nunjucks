@@ -4,7 +4,6 @@ var fs = require('fs');
 var path = require('path');
 var lib = require('./lib');
 var Loader = require('./loader');
-var chokidar = require('chokidar');
 var PrecompiledLoader = require('./precompiled-loader.js');
 
 // Node <0.7.1 compatibility
@@ -34,20 +33,11 @@ var FileSystemLoader = Loader.extend({
         }
 
         if(opts.watch) {
-            // Watch all the templates in the paths and fire an event when
-            // they change
-            var paths = this.searchPaths.filter(function(p) { return existsSync(p); });
-            var watcher = chokidar.watch(paths);
-            var _this = this;
-            watcher.on('all', function(event, fullname) {
-                fullname = path.resolve(fullname);
-                if(event === 'change' && fullname in _this.pathsToNames) {
-                    _this.emit('update', _this.pathsToNames[fullname]);
-                }
-            });
-            watcher.on('error', function(error) {
-                console.log('Watcher error: ' + error);
-            });
+            console.log(
+                '[nunjucks-no-watch] Warning: you are passing watch option' +
+                'but this module don\'t support watch because it is ment to be used ' +
+                'with nunjucksify.'
+            );
         }
     },
 
