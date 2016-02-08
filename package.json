@@ -5,10 +5,8 @@
   "author": "James Long <longster@gmail.com>",
   "dependencies": {
     "asap": "^2.0.3",
-    "chokidar": "^1.0.0",
     "optimist": "*"
   },
-  "browser": "./browser/nunjucks.js",
   "devDependencies": {
     "expect.js": "*",
     "express": "4.x",
